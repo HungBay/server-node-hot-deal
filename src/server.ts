@@ -1,7 +1,11 @@
-const express = require('express');
+import { routerApp } from './routers/route';
+import express from 'express';
 const app = express();
+const router = express.Router();
 const port = 4200;
 
-app.get('/', (req: any, res: any) => res.send('Hello 4'))
+// middleware that is specific to this router
+router.use(app)
+routerApp(app);
 
 app.listen(port)
